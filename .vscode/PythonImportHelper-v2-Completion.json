@@ -1,0 +1,316 @@
+[
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "File",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "UploadFile",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "FileResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "process_and_predict",
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "isExtraImport": true,
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "httpx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "httpx",
+        "description": "httpx",
+        "detail": "httpx",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "tensorflow",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "# type: ignore\r\n    preprocess_input",
+        "importPath": "tensorflow.keras.applications.mobilenet_v2",
+        "description": "tensorflow.keras.applications.mobilenet_v2",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras.applications.mobilenet_v2",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "origins",
+        "importPath": "app.config.cors",
+        "description": "app.config.cors",
+        "isExtraImport": true,
+        "detail": "app.config.cors",
+        "documentation": {}
+    },
+    {
+        "label": "predict_router",
+        "importPath": "app.routes.predictRoutes",
+        "description": "app.routes.predictRoutes",
+        "isExtraImport": true,
+        "detail": "app.routes.predictRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "main_router",
+        "importPath": "app.routes.mainRoutes",
+        "description": "app.routes.mainRoutes",
+        "isExtraImport": true,
+        "detail": "app.routes.mainRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "origins",
+        "kind": 5,
+        "importPath": "app.config.cors",
+        "description": "app.config.cors",
+        "peekOfCode": "origins = [\"https://smartwoundcare.site\", \"http://localhost:3900\"]",
+        "detail": "app.config.cors",
+        "documentation": {}
+    },
+    {
+        "label": "getMainInfo",
+        "kind": 2,
+        "importPath": "app.routes.mainRoutes",
+        "description": "app.routes.mainRoutes",
+        "peekOfCode": "def getMainInfo():\n    return {\n        \"message\": \"Welcome to the Wound Prediction API!\",\n        \"endpoints\": {\n            \"/predict/\": \"POST an image file to this endpoint to get the wound prediction.\"\n        },\n    }",
+        "detail": "app.routes.mainRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "main_router",
+        "kind": 5,
+        "importPath": "app.routes.mainRoutes",
+        "description": "app.routes.mainRoutes",
+        "peekOfCode": "main_router = APIRouter()\n@main_router.get(\"/\")\ndef getMainInfo():\n    return {\n        \"message\": \"Welcome to the Wound Prediction API!\",\n        \"endpoints\": {\n            \"/predict/\": \"POST an image file to this endpoint to get the wound prediction.\"\n        },\n    }",
+        "detail": "app.routes.mainRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "predict_router",
+        "kind": 5,
+        "importPath": "app.routes.predictRoutes",
+        "description": "app.routes.predictRoutes",
+        "peekOfCode": "predict_router = APIRouter()\n# Define directory for saving images\nSAVE_DIR = \"static/predictions/\"\nAPI_URL = os.getenv(\"API_URL\", \"https://api.smartwoundcare.site/api/wounds/type\")\n# Ensure the directory exists\nos.makedirs(SAVE_DIR, exist_ok=True)\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(",
+        "detail": "app.routes.predictRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "SAVE_DIR",
+        "kind": 5,
+        "importPath": "app.routes.predictRoutes",
+        "description": "app.routes.predictRoutes",
+        "peekOfCode": "SAVE_DIR = \"static/predictions/\"\nAPI_URL = os.getenv(\"API_URL\", \"https://api.smartwoundcare.site/api/wounds/type\")\n# Ensure the directory exists\nos.makedirs(SAVE_DIR, exist_ok=True)\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(\n            content={\"detail\": \"Image to predict not found\"}, status_code=400\n        )",
+        "detail": "app.routes.predictRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "API_URL",
+        "kind": 5,
+        "importPath": "app.routes.predictRoutes",
+        "description": "app.routes.predictRoutes",
+        "peekOfCode": "API_URL = os.getenv(\"API_URL\", \"https://api.smartwoundcare.site/api/wounds/type\")\n# Ensure the directory exists\nos.makedirs(SAVE_DIR, exist_ok=True)\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(\n            content={\"detail\": \"Image to predict not found\"}, status_code=400\n        )\n    try:",
+        "detail": "app.routes.predictRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "process_and_predict",
+        "kind": 2,
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "peekOfCode": "def process_and_predict(image: Image.Image):\n    try:\n        # Resize and preprocess the image for MobileNetV2\n        img_resized = image.resize((224, 224))  # Resize to MobileNetV2 input size\n        img_array = np.array(img_resized)  # Convert image to array\n        img_array = preprocess_input(img_array)  # ใช้ preprocess_input ของ MobileNetV2\n        img_array = np.expand_dims(\n            img_array, axis=0\n        )  # Expand dimensions for batch size\n        # Predict using the model",
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "base_path",
+        "kind": 5,
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "peekOfCode": "base_path = os.path.join(os.path.dirname(__file__), \"..\", \"models\")\n# Define the path to the model file and label file\nmodel_path = os.path.join(base_path, \"best_V2_model.h5\")\nlabel_path = os.path.join(base_path, \"label.txt\")\n# Load the model\nmodel = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold",
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "model_path",
+        "kind": 5,
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "peekOfCode": "model_path = os.path.join(base_path, \"best_V2_model.h5\")\nlabel_path = os.path.join(base_path, \"label.txt\")\n# Load the model\nmodel = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold\nTOP_K = 5  # เลือก top-5 ผลลัพธ์ที่มีความเชื่อมั่นสูงสุด\nconfidence_threshold = 0.75",
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "label_path",
+        "kind": 5,
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "peekOfCode": "label_path = os.path.join(base_path, \"label.txt\")\n# Load the model\nmodel = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold\nTOP_K = 5  # เลือก top-5 ผลลัพธ์ที่มีความเชื่อมั่นสูงสุด\nconfidence_threshold = 0.75\ndef process_and_predict(image: Image.Image):",
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "peekOfCode": "model = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold\nTOP_K = 5  # เลือก top-5 ผลลัพธ์ที่มีความเชื่อมั่นสูงสุด\nconfidence_threshold = 0.75\ndef process_and_predict(image: Image.Image):\n    try:\n        # Resize and preprocess the image for MobileNetV2",
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "TOP_K",
+        "kind": 5,
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "peekOfCode": "TOP_K = 5  # เลือก top-5 ผลลัพธ์ที่มีความเชื่อมั่นสูงสุด\nconfidence_threshold = 0.75\ndef process_and_predict(image: Image.Image):\n    try:\n        # Resize and preprocess the image for MobileNetV2\n        img_resized = image.resize((224, 224))  # Resize to MobileNetV2 input size\n        img_array = np.array(img_resized)  # Convert image to array\n        img_array = preprocess_input(img_array)  # ใช้ preprocess_input ของ MobileNetV2\n        img_array = np.expand_dims(\n            img_array, axis=0",
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "confidence_threshold",
+        "kind": 5,
+        "importPath": "app.services.predictorService",
+        "description": "app.services.predictorService",
+        "peekOfCode": "confidence_threshold = 0.75\ndef process_and_predict(image: Image.Image):\n    try:\n        # Resize and preprocess the image for MobileNetV2\n        img_resized = image.resize((224, 224))  # Resize to MobileNetV2 input size\n        img_array = np.array(img_resized)  # Convert image to array\n        img_array = preprocess_input(img_array)  # ใช้ preprocess_input ของ MobileNetV2\n        img_array = np.expand_dims(\n            img_array, axis=0\n        )  # Expand dimensions for batch size",
+        "detail": "app.services.predictorService",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI()\n# Configure CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n# Include routes",
+        "detail": "main",
+        "documentation": {}
+    }
+]
