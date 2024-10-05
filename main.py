@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config.cors import origins
 from app.routes.predictRoutes import predict_router
 from app.routes.mainRoutes import main_router
+import os
 
 app = FastAPI()
 
@@ -23,4 +24,5 @@ app.include_router(predict_router)
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8888)
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
