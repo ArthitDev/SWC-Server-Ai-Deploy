@@ -255,7 +255,7 @@
         "kind": 5,
         "importPath": "app.services.predictorService",
         "description": "app.services.predictorService",
-        "peekOfCode": "base_path = os.path.join(os.path.dirname(__file__), \"..\", \"models\")\n# Define the path to the model file and label file\nmodel_path = os.path.join(base_path, \"best_V2_model.h5\")\nlabel_path = os.path.join(base_path, \"label.txt\")\n# Load the model\nmodel = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold",
+        "peekOfCode": "base_path = os.path.join(os.path.dirname(__file__), \"..\", \"models\")\n# Define the path to the model file and label file\nmodel_path = os.path.join(base_path, \"best_model.h5\")\nlabel_path = os.path.join(base_path, \"label.txt\")\n# Load the model\nmodel = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold",
         "detail": "app.services.predictorService",
         "documentation": {}
     },
@@ -264,7 +264,7 @@
         "kind": 5,
         "importPath": "app.services.predictorService",
         "description": "app.services.predictorService",
-        "peekOfCode": "model_path = os.path.join(base_path, \"best_V2_model.h5\")\nlabel_path = os.path.join(base_path, \"label.txt\")\n# Load the model\nmodel = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold\nTOP_K = 5  # เลือก top-5 ผลลัพธ์ที่มีความเชื่อมั่นสูงสุด\nconfidence_threshold = 0.75",
+        "peekOfCode": "model_path = os.path.join(base_path, \"best_model.h5\")\nlabel_path = os.path.join(base_path, \"label.txt\")\n# Load the model\nmodel = tf.keras.models.load_model(model_path)\n# Load class names from label.txt with UTF-8 encoding\nwith open(label_path, \"r\", encoding=\"utf-8\") as f:\n    class_names = [line.strip() for line in f.readlines()]\n# Define Top-K predictions and confidence threshold\nTOP_K = 5  # เลือก top-5 ผลลัพธ์ที่มีความเชื่อมั่นสูงสุด\nconfidence_threshold = 0.75",
         "detail": "app.services.predictorService",
         "documentation": {}
     },

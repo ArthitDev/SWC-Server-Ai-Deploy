@@ -14,7 +14,7 @@ tf.config.set_visible_devices([], "GPU")
 base_path = os.path.join(os.path.dirname(__file__), "..", "models")
 
 # Define the path to the model file and label file
-model_path = os.path.join(base_path, "best_V2_model.h5")
+model_path = os.path.join(base_path, "best_model.h5")
 label_path = os.path.join(base_path, "label.txt")
 
 # Load the model
