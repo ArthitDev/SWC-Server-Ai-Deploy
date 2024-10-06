@@ -1,6 +1,6 @@
 import os
 from fastapi import APIRouter, File, UploadFile
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse
 from PIL import Image
 from io import BytesIO
 from app.services.predictorService import process_and_predict
@@ -10,13 +10,9 @@ from typing import List
 
 predict_router = APIRouter()
 
-# Define directory for saving images
-SAVE_DIR = "static/predictions/"
-API_URL = os.getenv("API_URL", "https://api.smartwoundcare.site/api/wounds/type")
-
-# Ensure the directory exists
-os.makedirs(SAVE_DIR, exist_ok=True)
-
+# API URLs
+API_URL = os.getenv("API_URL", "http://localhost:3000/api/wounds/type")
+API_URL_UPLOAD = os.getenv("API_URL_UPLOAD", "http://localhost:3000/api/user/uploads")
 
 @predict_router.post("/predict/")
 async def predict(file: UploadFile = File(None)):
@@ -32,14 +28,15 @@ async def predict(file: UploadFile = File(None)):
         # Process the image and get the results (multiple predictions)
         predictions, img_byte_arr = process_and_predict(image)
 
-        # Generate a unique filename based on current timestamp
-        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-        filename = f"{timestamp}_prediction.jpg"
-        file_path = os.path.join(SAVE_DIR, filename)
+        # Prepare the image to be sent to the external API (ExpressJS)
+        files = {'file': ('image.jpg', img_byte_arr, 'image/jpeg')}
+        async with httpx.AsyncClient() as client:
+            upload_response = await client.post(API_URL_UPLOAD, files=files)
+            upload_response.raise_for_status()
+            upload_data = upload_response.json()
 
-        # Save the image to the server
-        with open(file_path, "wb") as f:
-            f.write(img_byte_arr)
+        # Get the uploaded image URL from the external API response
+        uploaded_image_url = upload_data.get('image_url')
 
         # Extract wound types from predictions that are not "ไม่พบแผล"
         wound_types = [
@@ -57,7 +54,7 @@ async def predict(file: UploadFile = File(None)):
             try:
                 async with httpx.AsyncClient() as client:
                     response = await client.post(API_URL, json=payload)
-                    response.raise_for_status()  # Raise exception for non-200 status codes
+                    response.raise_for_status()
 
                     additional_data = response.json()
 
@@ -67,23 +64,16 @@ async def predict(file: UploadFile = File(None)):
                         if wound_type:
                             additional_data_map[wound_type] = {
                                 "id": data["id"],
-                                "wound_covers": data.get(
-                                    "wound_covers", []
-                                ),  # Handle array of wound_cover URLs
+                                "wound_covers": data.get("wound_covers", []),
                             }
                         else:
-                            print(
-                                "Warning: Missing wound_name in the additional data response"
-                            )
+                            print("Warning: Missing wound_name in the additional data response")
 
             except httpx.HTTPStatusError as e:
-                # Handle response status errors (e.g., 4xx, 5xx)
                 print(f"API response error: {e}")
             except httpx.RequestError as e:
-                # Handle general request errors (e.g., connection problems)
                 print(f"API request failed: {e}")
             except ValueError as e:
-                # Handle data processing errors
                 print(f"Data error: {e}")
 
         # Match additional data with each wound in predictions
@@ -97,10 +87,7 @@ async def predict(file: UploadFile = File(None)):
                 "confidence": prediction["confidence"],
                 "additional_data": additional_data_map.get(
                     wound_type,
-                    {
-                        "id": None,
-                        "wound_covers": [],  # Default to empty array if no data
-                    },
+                    {"id": None, "wound_covers": []},  # Default to empty array if no data
                 ),
             }
 
@@ -109,7 +96,7 @@ async def predict(file: UploadFile = File(None)):
         # Prepare data for response
         response_data = {
             "predictions": final_predictions,
-            "image_url": f"/predict/image/{filename}",
+            "image_url": uploaded_image_url,  # Return the uploaded image URL from ExpressJS
         }
 
         return JSONResponse(content=response_data)
@@ -118,15 +105,3 @@ async def predict(file: UploadFile = File(None)):
         # Return a 500 error with the error message
         error_message = f"Error processing the image: {str(e)}"
         return JSONResponse(content={"detail": error_message}, status_code=500)
-
-
-@predict_router.get("/predict/image/{filename}")
-async def get_predicted_image(filename: str):
-    file_path = os.path.join(SAVE_DIR, filename)
-
-    # Check if the file exists
-    if not os.path.exists(file_path):
-        return JSONResponse(content={"detail": "Image not found"}, status_code=404)
-
-    # Return the saved image
-    return FileResponse(file_path, media_type="image/png")
