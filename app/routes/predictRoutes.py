@@ -1,12 +1,16 @@
 import os
 from fastapi import APIRouter, File, UploadFile
 from fastapi.responses import JSONResponse
+from dotenv import load_dotenv
 from PIL import Image
 from io import BytesIO
 from app.services.predictorService import process_and_predict
 from datetime import datetime
 import httpx
 from typing import List
+
+
+load_dotenv()
 
 predict_router = APIRouter()
 
