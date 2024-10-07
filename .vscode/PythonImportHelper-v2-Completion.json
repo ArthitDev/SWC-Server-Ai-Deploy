@@ -57,11 +57,11 @@
         "documentation": {}
     },
     {
-        "label": "FileResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
         "isExtraImport": true,
-        "detail": "fastapi.responses",
+        "detail": "dotenv",
         "documentation": {}
     },
     {
@@ -219,16 +219,7 @@
         "kind": 5,
         "importPath": "app.routes.predictRoutes",
         "description": "app.routes.predictRoutes",
-        "peekOfCode": "predict_router = APIRouter()\n# Define directory for saving images\nSAVE_DIR = \"static/predictions/\"\nAPI_URL = os.getenv(\"API_URL\", \"https://api.smartwoundcare.site/api/wounds/type\")\n# Ensure the directory exists\nos.makedirs(SAVE_DIR, exist_ok=True)\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(",
-        "detail": "app.routes.predictRoutes",
-        "documentation": {}
-    },
-    {
-        "label": "SAVE_DIR",
-        "kind": 5,
-        "importPath": "app.routes.predictRoutes",
-        "description": "app.routes.predictRoutes",
-        "peekOfCode": "SAVE_DIR = \"static/predictions/\"\nAPI_URL = os.getenv(\"API_URL\", \"https://api.smartwoundcare.site/api/wounds/type\")\n# Ensure the directory exists\nos.makedirs(SAVE_DIR, exist_ok=True)\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(\n            content={\"detail\": \"Image to predict not found\"}, status_code=400\n        )",
+        "peekOfCode": "predict_router = APIRouter()\n# API URLs\nAPI_URL = os.getenv(\"API_URL\", \"http://localhost:3000/api/wounds/type\")\nAPI_URL_UPLOAD = os.getenv(\"API_URL_UPLOAD\", \"http://localhost:3000/api/user/uploads\")\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(\n            content={\"detail\": \"Image to predict not found\"}, status_code=400\n        )",
         "detail": "app.routes.predictRoutes",
         "documentation": {}
     },
@@ -237,7 +228,16 @@
         "kind": 5,
         "importPath": "app.routes.predictRoutes",
         "description": "app.routes.predictRoutes",
-        "peekOfCode": "API_URL = os.getenv(\"API_URL\", \"https://api.smartwoundcare.site/api/wounds/type\")\n# Ensure the directory exists\nos.makedirs(SAVE_DIR, exist_ok=True)\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(\n            content={\"detail\": \"Image to predict not found\"}, status_code=400\n        )\n    try:",
+        "peekOfCode": "API_URL = os.getenv(\"API_URL\", \"http://localhost:3000/api/wounds/type\")\nAPI_URL_UPLOAD = os.getenv(\"API_URL_UPLOAD\", \"http://localhost:3000/api/user/uploads\")\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(\n            content={\"detail\": \"Image to predict not found\"}, status_code=400\n        )\n    try:\n        # Open the uploaded image",
+        "detail": "app.routes.predictRoutes",
+        "documentation": {}
+    },
+    {
+        "label": "API_URL_UPLOAD",
+        "kind": 5,
+        "importPath": "app.routes.predictRoutes",
+        "description": "app.routes.predictRoutes",
+        "peekOfCode": "API_URL_UPLOAD = os.getenv(\"API_URL_UPLOAD\", \"http://localhost:3000/api/user/uploads\")\n@predict_router.post(\"/predict/\")\nasync def predict(file: UploadFile = File(None)):\n    if file is None:\n        return JSONResponse(\n            content={\"detail\": \"Image to predict not found\"}, status_code=400\n        )\n    try:\n        # Open the uploaded image\n        image = Image.open(BytesIO(await file.read())).convert(\"RGB\")",
         "detail": "app.routes.predictRoutes",
         "documentation": {}
     },

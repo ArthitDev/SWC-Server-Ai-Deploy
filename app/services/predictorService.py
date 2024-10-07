@@ -42,8 +42,13 @@ def process_and_predict(image: Image.Image):
         # Predict using the model
         predictions = model.predict(img_array)[0]  # Get the raw predictions
 
-        # Apply softmax to convert logits to probabilities if the model doesn't already have softmax
-        if model.layers[-1].activation != tf.keras.activations.softmax:
+        # Check if the last layer of the model has a softmax activation
+        last_layer = model.layers[-1]
+        if (
+            isinstance(last_layer, tf.keras.layers.Dense)
+            and last_layer.activation != tf.keras.activations.softmax
+        ):
+            # Apply softmax to convert logits to probabilities if the model doesn't already have softmax
             predictions = tf.nn.softmax(predictions).numpy()
 
         # Get top-K predictions with confidence scores
